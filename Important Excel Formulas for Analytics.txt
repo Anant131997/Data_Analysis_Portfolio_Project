@@ -1,0 +1,143 @@
+
+
+	------------------ Important EXCEL Formulas -----------------
+
+1) -> Max-Min
+
+	Formula 1 ->   =MAX(H2:H10) 
+	Formula 2 ->   =MIN(H2:H10)
+
+	Note. --> Select the range of data out of which max/min value is being calculated.
+		  (taking range from Row H2 to H10).
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+2) -> If-Ifs
+
+	Formula 1 ->	=IF(D2:D10 > 30,"Old","Young")
+	Formula 2 ->	=IFS(F2:F10 = "Salesman","Sales",F2:F10="HR","Fire Immedietly",F2:F10="Regional Manager","Give Diwali Bonus")
+
+	Note. --> Select the range of data out of which you want to check condition.
+		Give Condition, if true first value will be output else second. 
+		IF() is use to vaify a single case, wheras IFS() is used to varify multiple cases at same time.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+3) -> Len
+
+	Formula ->	=LEN(C2:C10)
+	
+	Note. --> This can be used for various purposes. Ex-> to find the length of each string in table, or to see differenve between 100s and 1000s in a table etc.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4) -> LeftRight 
+
+	Formula 1 ->	=LEFT(B2:B10,3) Eg. -> Rose -> Ros 
+	Formula 1 ->	=RIGHT(B2:B10,3) Eg. -> Rose -> ose
+
+	Note. --> This is used to choose value from a column form left/right upto which we want to choose.
+		Here we first choose the range of data, then upto which character we want to see result from left/right.
+---------------------------------------------------------------------------------------------------------------------------
+
+5) -> DateToText
+
+	Formula ->	=TEXT(H2:H10,"dd/mm/yyyy")
+
+	Note. --> every date in excel remailns in date format eg ->/ 14/08/2024
+	and to convert it into string we need to select the range of data in which we want to
+	perform this action and then we need to tell what format of date is in the selected range
+	eg -> 'dd/mm/yyyy' or 'yyyy/mm/dd' or 'mm/dd/yyyy' etc. 
+	Also note that a date in date format remains in right direction in cell, where as a 
+	date in word format remains in left direction of cell.
+---------------------------------------------------------------------------------------------------------------
+
+6) -> TRIM
+
+	Formula ->	=TRIM(C2:C10)
+
+	NOTE. --> It removes all spaces from a text string except for sing space between words.
+-----------------------------------------------------------------------------------------------------------------
+
+7) -> Concatenate
+
+	Formula ->	=CONCATENATE(B2,"",C2)
+
+	NOTE. --> It concatenates 2 values in a single unit.
+		Eg -> B2 has value 'ANANT' and C2 has value 'SINGH', then =CONCATENATE(B2,"",C2) = ANANT SINGH
+----------------------------------------------------------------------------------------------------------------
+
+8) -> Substitute 
+
+	Formula ->	=SUBSTITUTE(text, old_text, new_text, [instance_num])
+			--------------------------------------------	
+
+	Eg. 1 (With no instance)->	=SUBSTITUTE(H2:H10,"-","/")
+
+	NOTE. --> Substitute replaces existing text with new text in a text string.
+		  Also note that instance num is optional. You may use it or not depending on
+		  your need. 
+	Eg 1 explaination -> Suppose there is a date in row filled with date and its format is
+			   like '10-05-2023' then when we substituted - with / then the format
+			   of date becomes '10/05/2023'.
+			----------------------------------------------------
+	Eg 2. (With 1 instance) -> 	=SUBSTITUTE(H2:H10,"/","-",1)
+	
+	Note .-> Only the data at the first instance gets changed.
+		Eg. -> '10/05/2023' becomes '10-05/2023'
+			-------------------------------------------------------
+	Eg 3. (With 2 instances) ->	=SUBSTITUTE(H2:H10,"/","-",2)
+
+	Note .-> Only the data at the 2nd instance gets changed.
+		Eg. -> '10/05/2023' becomes '10/05-2023'
+----------------------------------------------------------------------------------------------------------------------
+ 
+9) -> SUM-SumIF-SumIFS
+
+	Formula 1->	=SUM(P2:P10)
+
+	Note. -> It adds all numbers between the selected range.
+		--------------------------------------
+	
+	Formula 2 -> 	=SUMIF(P2:P10,">50000")
+	
+	Note. -> Now only those numbers will be added within a range that is greater than 50000.
+		--------------------------------------
+	
+	Formula 3 ->	=SUMIFS(P2:P10,E2:E10,"Female",D2:D10,">30")
+	Syntax ->	=SUMIFS(sum_range,criteria_range 1,criteria 1,criteria_range 2,criteria 2 .....)
+		
+	Note -> Suppose column P includes salary, E includes gender and D includes age.
+		Now according to above example only those salary will be added where gender 
+		is female and their is greater than 30 years.
+----------------------------------------------------------------------------------------------------------------------
+
+10) -> Count-CountIF-CountIFS
+
+	Formula 1 ->	=COUNT(P2:P10)  ----> Output: 9
+
+	Note. -> Count gives the total numbers of rows which we have selected.
+		Also note that syntax of COUNT and COUNTIFS is similar to that of SUM, SUMIF
+		and SUMIFS is same. It is just that it give sthe count of selected cells that
+		pass the given condition.
+
+----------------------------------------------------------------------------------------------------------------------
+
+11) -> Days-NetWorkDays
+
+	Formula 1 ->	=DAYS(I2,H2) 
+	Syntax ->	=DAYS(end_date, start_date)
+
+	Note. -> It give total number of days between givenspecific dates. Suppose I2 has 
+		end_date as '9/6/2015' and H2 has starting_date as '11/02/2001' then output
+		of above query will be '5056'. Note that first instance in () is end_date
+		and second instance is starting_date.
+
+	Formula 2 -> 	=NETWORKDAYS(H2,I2)
+	Syntax ->	=DAYS(start_date, end_date,[holidays])
+	
+	Note. -> NETWORKDAYS also does the exact same work as DAYS(), except that it execludes
+		the holidays and weekends from the range selected. That is it shows the exact 
+		number of working days between 2 selected date range. Suppose I2 has 
+		end_date as '9/6/2015' and H2 has starting_date as '11/02/2001' then output
+		of above query will be '3611' by excluding the weekends. Note that giving the
+		number of holidays is optional and not mendatory.
+
+
